@@ -14,9 +14,9 @@
  * This is a simplified example — tailor to your business rules.
  */
 
-const User = require('../models/User');
-const Team = require('../models/Team');
-const Task = require('../models/Task');
+import User from '../models/User.js'; 
+import Team from '../models/Team.js';
+import Task from '../models/Task.js';
 
 const hierarchy = ['Admin','HR','BDM','ASM','Employee','Super Employee'];
 

@@ -1,7 +1,7 @@
-const bcrypt = require('bcryptjs');
-const User = require('../models/User');
-const Role = require('../models/Role');
-const Team = require('../models/Team');
+import bcrypt from 'bcryptjs';
+import User from '../models/User.js';
+import Role from '../models/Role.js'; 
+import Team from '../models/Team.js';
 
 const seedAdminIfNeeded = async (appOrNull) => {
   const adminEmail = process.env.ADMIN_EMAIL;

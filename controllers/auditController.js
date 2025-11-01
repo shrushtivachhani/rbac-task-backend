@@ -1,4 +1,4 @@
-const AuditLog = require('../models/AuditLog');
+import AuditLog from '../models/AuditLog.js';
 
 const listAudit = async (req, res) => {
   const page = parseInt(req.query.page || '1');

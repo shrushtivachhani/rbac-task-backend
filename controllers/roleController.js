@@ -1,5 +1,5 @@
-const Role = require('../models/Role');
-const { PERMISSIONS } = require('../utils/permissions');
+import Role from '../models/Role.js';
+import PERMISSIONS from '../utils/permissions.js';
 
 // Admin-only controllers
 const createRole = async (req, res) => {

@@ -1,4 +1,4 @@
-const Notification = require('../models/Notification');
+import Notification from '../models/Notification.js';
 
 const listNotifications = async (req, res) => {
   const userId = req.user.userId;

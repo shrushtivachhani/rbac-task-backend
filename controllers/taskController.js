@@ -1,5 +1,5 @@
-const Task = require('../models/Task');
-const User = require('../models/User');
+import Task from '../models/Task.js';
+import User from '../models/User.js';
 
 const createTask = async (req, res) => {
   const { title, description, assignedTo, teamId, priority, deadline, attachments } = req.body;

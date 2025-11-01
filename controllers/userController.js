@@ -1,6 +1,6 @@
-const bcrypt = require('bcryptjs');
-const User = require('../models/User');
-const Team = require('../models/Team');
+import bcrypt from 'bcryptjs';
+import User from '../models/User.js'; 
+import Team from '../models/Team.js';
 
 // Admin creates users
 const createUser = async (req, res) => {

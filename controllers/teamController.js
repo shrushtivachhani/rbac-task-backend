@@ -1,5 +1,5 @@
-const Team = require('../models/Team');
-const User = require('../models/User');
+import Team from '../models/Team.js';
+import User from '../models/User.js';
 
 const createTeam = async (req, res) => {
   const { teamName, roleType, teamLeadId } = req.body;

@@ -1,9 +1,10 @@
-const express = require('express');
+
+import express from 'express';
 const router = express.Router();
-const { createTeam, listTeams, updateTeam, deleteTeam } = require('../controllers/teamController');
-const { verifyToken, checkRole } = require('../middlewares/auth');
-const validateScope = require('../middlewares/validateScope');
-const audit = require('../middlewares/auditMiddleware');
+import { createTeam, listTeams, updateTeam, deleteTeam } from '../controllers/teamController.js';
+import { verifyToken, checkRole } from '../middlewares/auth.js';
+import validateScope from '../middlewares/validateScope.js';
+import audit from '../middlewares/auditMiddleware.js';
 
 router.use(verifyToken);
 
