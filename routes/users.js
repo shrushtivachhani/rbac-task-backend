@@ -1,9 +1,11 @@
-const express = require('express');
+// routes/users.js (CORRECT)
+import express from 'express';
+// This import is now correctly receiving named exports
+import { createUser, listUsers, getUser, updateUser, deleteUser } from '../controllers/userController.js';
+import { verifyToken, checkRole } from '../middlewares/auth.js';
+import validateScope from '../middlewares/validateScope.js';
+import audit from '../middlewares/auditMiddleware.js';
 const router = express.Router();
-const { createUser, listUsers, getUser, updateUser, deleteUser } = require('../controllers/userController');
-const { verifyToken, checkRole } = require('../middlewares/auth');
-const validateScope = require('../middlewares/validateScope');
-const audit = require('../middlewares/auditMiddleware');
 
 router.use(verifyToken);
 

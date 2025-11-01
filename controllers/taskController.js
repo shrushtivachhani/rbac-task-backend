@@ -1,5 +1,6 @@
 import Task from '../models/Task.js';
 import User from '../models/User.js';
+import Team from '../models/Team.js'; // FIX 1: Missing import for Team model
 
 const createTask = async (req, res) => {
   const { title, description, assignedTo, teamId, priority, deadline, attachments } = req.body;
@@ -41,21 +42,24 @@ const listTasks = async (req, res) => {
   }
 
   if (actor.role === 'HR') {
-    const teams = await require('../models/Team').find({ roleType: 'HR' }).lean();
+    // FIX 2: Replaced require(...) with imported Team model
+    const teams = await Team.find({ roleType: 'HR' }).lean(); 
     const teamIds = teams.map(t => t._id);
     const tasks = await Task.find({ teamId: { $in: teamIds } }).populate('assignedBy assignedTo teamId').lean();
     return res.json(tasks);
   }
 
   if (actor.role === 'BDM') {
-    const teams = await require('../models/Team').find({ roleType: 'ASM' }).lean();
+    // FIX 2: Replaced require(...) with imported Team model
+    const teams = await Team.find({ roleType: 'ASM' }).lean(); 
     const teamIds = teams.map(t => t._id);
     const tasks = await Task.find({ teamId: { $in: teamIds } }).populate('assignedBy assignedTo teamId').lean();
     return res.json(tasks);
   }
 
   if (actor.role === 'ASM') {
-    const myTeams = await require('../models/Team').find({ teamLeadId: actor.userId }).lean();
+    // FIX 2: Replaced require(...) with imported Team model
+    const myTeams = await Team.find({ teamLeadId: actor.userId }).lean(); 
     const myTeamIds = myTeams.map(t => t._id);
     const tasks = await Task.find({ teamId: { $in: myTeamIds } }).populate('assignedBy assignedTo teamId').lean();
     return res.json(tasks);
@@ -106,5 +110,5 @@ const deleteTask = async (req, res) => {
   res.json({ message: 'Task deleted' });
 };
 
-
-export default { createTask, listTasks, getTask, updateTask, deleteTask };
+// FIX 3: Changed to named export list to match import { ... } syntax in routes/tasks.js
+export { createTask, listTasks, getTask, updateTask, deleteTask };

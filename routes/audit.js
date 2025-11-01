@@ -1,7 +1,9 @@
-const express = require('express');
+// routes/audit.js (CORRECT)
+import express from 'express';
+// This import now correctly matches the named export in auditController.js
+import { listAudit } from '../controllers/auditController.js'; 
+import { verifyToken, checkRole } from '../middlewares/auth.js';
 const router = express.Router();
-const { listAudit } = require('../controllers/auditController');
-const { verifyToken, checkRole } = require('../middlewares/auth');
 
 router.use(verifyToken);
 router.get('/', checkRole(['Admin']), listAudit);

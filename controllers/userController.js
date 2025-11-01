@@ -36,8 +36,10 @@ const listUsers = async (req, res) => {
 
   // BDM: ASMs and their employees (approx: ASMs with managerId = BDM or team roleType = 'ASM')
   if (actor.role === 'BDM') {
-    const asms = await User.find({ role: 'ASM' }).select('-password').lean();
-    return res.json(asms);
+    const teams = await Team.find({ roleType: 'ASM' }).lean(); // Fix for BDM list logic: fetch teams with roleType 'ASM'
+    const teamIds = teams.map(t => t._id);
+    const users = await User.find({ teamId: { $in: teamIds } }).select('-password').lean();
+    return res.json(users);
   }
 
   // ASM: members of their teams
@@ -70,9 +72,17 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  await User.findByIdAndDelete(req.params.id);
+  // Pull user from any teams they belonged to
+  const userId = req.params.id;
+  await Team.updateMany({ members: userId }, { $pull: { members: userId } });
+  
+  // Also delete tasks created by or assigned to this user (optional cleanup)
+  // await require('../models/Task').deleteMany({ $or: [{ assignedTo: userId }, { assignedBy: userId }] });
+
+  await User.findByIdAndDelete(userId);
   res.json({ message: 'User deleted' });
 };
 
 
-export default { createUser, listUsers, getUser, updateUser, deleteUser };
+// FIX: Changed to named export list
+export { createUser, listUsers, getUser, updateUser, deleteUser };

@@ -1,3 +1,4 @@
+// controllers/auditController.js (FIXED)
 import AuditLog from '../models/AuditLog.js';
 
 const listAudit = async (req, res) => {
@@ -8,5 +9,5 @@ const listAudit = async (req, res) => {
   res.json({ page, limit, logs });
 };
 
-
-export default { listAudit };
+// FIX: Changed to named export
+export { listAudit };

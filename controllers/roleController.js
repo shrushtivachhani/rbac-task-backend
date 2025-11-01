@@ -25,5 +25,5 @@ const deleteRole = async (req, res) => {
   res.json({ message: 'Role deleted' });
 };
 
-
-export default { createRole, listRoles, updateRole, deleteRole }; 
+// FIX: Changed to named export list to match import { ... } syntax in the router
+export { createRole, listRoles, updateRole, deleteRole };

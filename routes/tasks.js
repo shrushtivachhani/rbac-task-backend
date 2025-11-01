@@ -1,7 +1,7 @@
-// routes/tasks.js
+
 import express from 'express';
-// Note: Assuming dependent files are also converted to use named or default exports.
-import { createTask, listTasks, getTask, updateTask, deleteTask } from '../controllers/taskController.js';
+// This import is now correct
+import { createTask, listTasks, getTask, updateTask, deleteTask } from '../controllers/taskController.js'; 
 import { verifyToken, checkRole } from '../middlewares/auth.js';
 import validateScope from '../middlewares/validateScope.js';
 import audit from '../middlewares/auditMiddleware.js';

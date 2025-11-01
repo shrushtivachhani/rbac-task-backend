@@ -14,4 +14,5 @@ const markRead = async (req, res) => {
 };
 
 
-export default { listNotifications, markRead }; 
+// FIX: Changed from export default { ... } to named export list
+export { listNotifications, markRead };

@@ -46,4 +46,4 @@ const deleteTeam = async (req, res) => {
 };
 
 
-export default { createTeam, listTeams, updateTeam, deleteTeam };
+export { createTeam, listTeams, updateTeam, deleteTeam };
