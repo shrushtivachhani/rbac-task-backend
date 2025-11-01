@@ -1,8 +1,8 @@
 // controllers/authController.js
 import bcrypt from 'bcryptjs';
-import User from '../models/User.js'; // FIXED: Using default import
-import RefreshToken from '../models/RefreshToken.js'; // FIXED: Using default import
-import jwtUtils from '../utils/jwt.js'; // Using default import
+import User from '../models/User.js';
+import RefreshToken from '../models/RefreshToken.js';
+import jwtUtils from '../utils/jwt.js';
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -59,4 +59,5 @@ const refresh = async (req, res) => {
   }
 };
 
-export default{ login, logout, refresh };
+// FIX: Change to a named export for each function
+export { login, logout, refresh };

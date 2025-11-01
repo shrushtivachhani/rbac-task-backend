@@ -1,9 +1,9 @@
-// middlewares/auth.js
-import jwtUtils from '../utils/jwt.js'; // Corrected to default import
-import User from '../models/User.js'; // Corrected to default import
+// middlewares/auth.js (FIXED)
+import jwtUtils from '../utils/jwt.js';
+import User from '../models/User.js';
 
 // verifyToken attaches req.user = { userId, role, teamId (if set) }
-const verifyToken = async (req, res, next) => {
+export const verifyToken = async (req, res, next) => { // Use named export
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -21,7 +21,7 @@ const verifyToken = async (req, res, next) => {
 };
 
 // checkRole(["Admin","HR"])
-const checkRole = (allowedRoles = []) => {
+export const checkRole = (allowedRoles = []) => { // Use named export
   return (req, res, next) => {
     if (!req.user) return res.status(500).json({ message: 'verifyToken must run before checkRole' });
     if (allowedRoles.includes(req.user.role) || allowedRoles.length === 0) return next();
@@ -29,4 +29,3 @@ const checkRole = (allowedRoles = []) => {
   };
 };
 
-export default{ verifyToken, checkRole };

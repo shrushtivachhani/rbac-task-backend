@@ -1,7 +1,7 @@
 // routes/auth.js
 import express from "express";
-// Import named exports from the authController file (must also be converted to ES Modules)
-import { login, logout, refresh } from '../controllers/authController.js';
+// This named import is now valid because authController.js exports { login, logout, refresh }
+import { login, logout, refresh } from '../controllers/authController.js'; 
 
 const router = express.Router();
 

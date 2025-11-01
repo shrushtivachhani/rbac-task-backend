@@ -1,8 +1,10 @@
+// routes/teams.js (CORRECT)
 
 import express from 'express';
 const router = express.Router();
 import { createTeam, listTeams, updateTeam, deleteTeam } from '../controllers/teamController.js';
-import { verifyToken, checkRole } from '../middlewares/auth.js';
+// This now correctly resolves the named exports from ../middlewares/auth.js
+import { verifyToken, checkRole } from '../middlewares/auth.js'; 
 import validateScope from '../middlewares/validateScope.js';
 import audit from '../middlewares/auditMiddleware.js';
 
