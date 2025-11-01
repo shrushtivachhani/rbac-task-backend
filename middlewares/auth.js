@@ -1,5 +1,6 @@
-const jwtUtils = require('../utils/jwt');
-const User = require('../models/User');
+// middlewares/auth.js
+import jwtUtils from '../utils/jwt.js'; // Corrected to default import
+import User from '../models/User.js'; // Corrected to default import
 
 // verifyToken attaches req.user = { userId, role, teamId (if set) }
 const verifyToken = async (req, res, next) => {
@@ -28,4 +29,4 @@ const checkRole = (allowedRoles = []) => {
   };
 };
 
-module.exports = { verifyToken, checkRole };
+export { verifyToken, checkRole };

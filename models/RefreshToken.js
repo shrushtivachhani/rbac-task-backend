@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// models/RefreshToken.js
+import mongoose from 'mongoose';
 
 const RefreshTokenSchema = new mongoose.Schema({
   token: { type: String, required: true },
@@ -7,4 +8,4 @@ const RefreshTokenSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('RefreshToken', RefreshTokenSchema);
+export default mongoose.model('RefreshToken', RefreshTokenSchema);

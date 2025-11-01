@@ -1,7 +1,8 @@
-const bcrypt = require('bcryptjs');
-const User = require('../models/User');
-const RefreshToken = require('../models/RefreshToken');
-const jwtUtils = require('../utils/jwt');
+// controllers/authController.js
+import bcrypt from 'bcryptjs';
+import User from '../models/User.js'; // FIXED: Using default import
+import RefreshToken from '../models/RefreshToken.js'; // FIXED: Using default import
+import jwtUtils from '../utils/jwt.js'; // Using default import
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -58,4 +59,4 @@ const refresh = async (req, res) => {
   }
 };
 
-module.exports = { login, logout, refresh };
+export { login, logout, refresh };

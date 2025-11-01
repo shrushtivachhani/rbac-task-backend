@@ -1,8 +1,7 @@
-const AuditLog = require('../models/AuditLog');
+import AuditLog from '../models/AuditLog.js';
 
 const audit = (actionType) => {
   return async (req, res, next) => {
-    // attach a hook that runs after response sent
     res.on('finish', async () => {
       try {
         const performedBy = req.user?.userId || null;
@@ -11,7 +10,7 @@ const audit = (actionType) => {
           performedBy,
           targetId: req.params.id || req.body?.id || null,
           role: req.user?.role || null,
-          details: `${req.method} ${req.originalUrl} - status ${res.statusCode}`
+          details: `${req.method} ${req.originalUrl} - status ${res.statusCode}`,
         });
       } catch (err) {
         console.error('Failed to write audit log', err);
@@ -21,4 +20,4 @@ const audit = (actionType) => {
   };
 };
 
-module.exports = audit;
+export default audit;

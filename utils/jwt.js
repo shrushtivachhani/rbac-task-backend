@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken');
+// utils/jwt.js
+import jwt from 'jsonwebtoken';
 
 const signAccessToken = (payload) => {
   const secret = process.env.JWT_SECRET;
@@ -20,7 +21,7 @@ const verifyRefreshToken = (token) => {
   return jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
 };
 
-module.exports = {
+export default {
   signAccessToken,
   signRefreshToken,
   verifyAccessToken,
