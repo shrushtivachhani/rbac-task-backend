@@ -13,4 +13,5 @@ const markRead = async (req, res) => {
   res.json({ message: 'Marked read' });
 };
 
-module.exports = { listNotifications, markRead };
+
+export default { listNotifications, markRead }; 

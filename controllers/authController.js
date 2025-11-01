@@ -59,4 +59,4 @@ const refresh = async (req, res) => {
   }
 };
 
-export { login, logout, refresh };
+export default{ login, logout, refresh };

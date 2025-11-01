@@ -8,4 +8,5 @@ const listAudit = async (req, res) => {
   res.json({ page, limit, logs });
 };
 
-module.exports = { listAudit };
+
+export default { listAudit };

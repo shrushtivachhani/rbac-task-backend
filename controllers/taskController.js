@@ -106,4 +106,5 @@ const deleteTask = async (req, res) => {
   res.json({ message: 'Task deleted' });
 };
 
-module.exports = { createTask, listTasks, getTask, updateTask, deleteTask };
+
+export default { createTask, listTasks, getTask, updateTask, deleteTask };

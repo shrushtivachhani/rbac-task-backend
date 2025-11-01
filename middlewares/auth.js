@@ -29,4 +29,4 @@ const checkRole = (allowedRoles = []) => {
   };
 };
 
-export { verifyToken, checkRole };
+export default{ verifyToken, checkRole };

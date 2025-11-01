@@ -10,6 +10,6 @@ router.get('/', checkRole(['Admin']), listRoles);
 router.put('/:id', checkRole(['Admin']), audit('UPDATE_ROLE'), updateRole);
 router.delete('/:id', checkRole(['Admin']), audit('DELETE_ROLE'), deleteRole);
 
-module.exports = router;
+
 
 export default router;

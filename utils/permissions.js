@@ -12,4 +12,5 @@ const PERMISSIONS = {
   UPDATE_TASK: 'UPDATE_TASK'
 };
 
-module.exports = { PERMISSIONS };
+
+export default PERMISSIONS;

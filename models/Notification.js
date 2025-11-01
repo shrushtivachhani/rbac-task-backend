@@ -9,4 +9,4 @@ const NotificationSchema = new mongoose.Schema({
   isRead: { type: Boolean, default: false }
 });
 
-module.exports = mongoose.model('Notification', NotificationSchema);
+export default mongoose.model('Notification', NotificationSchema);

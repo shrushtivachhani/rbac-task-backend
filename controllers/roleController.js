@@ -25,4 +25,5 @@ const deleteRole = async (req, res) => {
   res.json({ message: 'Role deleted' });
 };
 
-module.exports = { createRole, listRoles, updateRole, deleteRole };
+
+export default { createRole, listRoles, updateRole, deleteRole }; 

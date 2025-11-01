@@ -10,6 +10,6 @@ router.use(verifyToken);
 router.get('/', audit('LIST_NOTIFICATIONS'), listNotifications);
 router.put('/mark-read', audit('MARK_NOTIFICATION_READ'), markRead);
 
-module.exports = router;
+
 
 export default router;

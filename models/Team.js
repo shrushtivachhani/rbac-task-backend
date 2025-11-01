@@ -8,4 +8,5 @@ const TeamSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Team', TeamSchema);
+
+export default mongoose.model('Team', TeamSchema);

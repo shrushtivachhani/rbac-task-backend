@@ -45,4 +45,5 @@ const deleteTeam = async (req, res) => {
   res.json({ message: 'Team deleted' });
 };
 
-module.exports = { createTeam, listTeams, updateTeam, deleteTeam };
+
+export default { createTeam, listTeams, updateTeam, deleteTeam };

@@ -74,4 +74,5 @@ const deleteUser = async (req, res) => {
   res.json({ message: 'User deleted' });
 };
 
-module.exports = { createUser, listUsers, getUser, updateUser, deleteUser };
+
+export default { createUser, listUsers, getUser, updateUser, deleteUser };

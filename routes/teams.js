@@ -13,4 +13,5 @@ router.get('/', checkRole(['Admin','HR','BDM','ASM','Employee','Super Employee']
 router.put('/:id', checkRole(['Admin','ASM']), validateScope({ target: 'team' }), audit('UPDATE_TEAM'), updateTeam);
 router.delete('/:id', checkRole(['Admin']), audit('DELETE_TEAM'), deleteTeam);
 
-module.exports = router;
+
+export default router;

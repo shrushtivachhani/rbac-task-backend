@@ -118,4 +118,5 @@ const validateScope = (options = {}) => {
   };
 };
 
-module.exports = validateScope;
+
+export default validateScope;

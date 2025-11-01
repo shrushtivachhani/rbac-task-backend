@@ -7,4 +7,5 @@ const RoleSchema = new mongoose.Schema({
   permissions: [{ type: String }]
 }, { timestamps: true });
 
-module.exports = mongoose.model('Role', RoleSchema);
+
+export default mongoose.model('Role', RoleSchema);
